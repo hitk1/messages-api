@@ -11,7 +11,7 @@ import helmet from 'helmet'
 
 import { notFoundApiRoutes } from './middlewares/not-found'
 import { globalErrorHandling } from './middlewares/global-errors'
-// import { serverRoutes } from '@infra/routes/server.routes'
+import { apiRoutes } from '@infra/routes/api.routes'
 
 const api = express()
 
@@ -23,7 +23,7 @@ api.use(express.json())
 api.use(express.urlencoded({ extended: true }))
 
 api.use(morgan('dev'))
-// api.use('/', serverRoutes)
+api.use('/', apiRoutes)
 
 api.use(notFoundApiRoutes)
 api.use(globalErrorHandling as any)

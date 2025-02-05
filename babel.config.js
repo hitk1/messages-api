@@ -19,8 +19,6 @@ module.exports = {
             '@infra': './src/infra',
             '@shared': './src/shared',
             '@core': './src/core',
-            // '@webhooks': './src/webhooks',
-            // '@services': './src/services'
           }
         }
       ],
