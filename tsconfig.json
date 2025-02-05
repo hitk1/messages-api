@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ES2021"
+    ],
+    "target": "ES2021",
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "allowJs": true,
+    "paths": {
+      "@types/*": [
+        "./src/@types/*"
+      ],
+      "@core/*": [
+        "./src/core/*"
+      ],
+      "@infra/*": [
+        "./src/infra/*"
+      ],
+      "@shared/*": [
+        "./src/shared/*"
+      ],
+      "@modules/*": [
+        "./src/modules/*"
+      ],
+      // "@webhooks/*": [
+      //   "./src/webhooks/*"
+      // ],
+      // "@services/*": [
+      //   "./src/services/*"
+      // ],
+    },
+    "plugins": [
+      {
+        "transform": "typescript-transform-paths"
+      }
+    ],
+    "allowSyntheticDefaultImports": true,
+    "declaration": false,
+    "forceConsistentCasingInFileNames": true,
+    "strictPropertyInitialization": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "useUnknownInCatchVariables": false,
+  },
+  "include": [
+    "./src/**/*.ts"
+  ]
+}
