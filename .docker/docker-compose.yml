@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  api:
+    container_name: api
+    restart: unless-stopped
+    build: .
+    ports:
+      - 3333:3333
+    environment:
+      - NODE_ENV=dev
+      - DATABASE_URL=postgres://postgres:rpi1234@database:5432/postgres
+    volumes:
+      - .:/usr/app
+    networks:
+      - tunnel
+    depends_on:
+      - database
+
+  database:
+    container_name: database
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=rpi1234
+    volumes:
+      - local-volume:/data/postgres
+    networks:
+      - tunnel
+
+volumes:
+  local-volume:
+    driver: local
+
+networks:
+  tunnel:
+    driver: bridge
