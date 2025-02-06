@@ -22,7 +22,8 @@
     "start:server": "node --optimize_for_size --max_old_space_size=460 ./dist/infra/server/cluster.js",
     "db:deploy": "yarn prisma migrate deploy",
     "db:generate": "yarn prisma generate",
-    "db:migrate": "yarn prisma migrate dev"
+    "db:migrate": "yarn prisma migrate dev",
+    "test": "vitest --run"
   },
   "keywords": [],
   "license": "MIT",
@@ -60,6 +61,7 @@
     "prisma": "^6.3.1",
     "tsconfig-paths": "^4.2.0",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
   }
 }

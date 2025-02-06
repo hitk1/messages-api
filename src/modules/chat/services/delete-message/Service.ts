@@ -13,12 +13,10 @@ export class ChatDeleteMessageService {
 
     async execute(params: IParamsDeleteMessage) {
         const { message_id } = deleteMessageValidation.parse(params)
-        
+
         const result = await this.messageRepo.deleteById(message_id)
 
         if(result === 0)
             throw new AppError('Message not found', 404)
-
-        return
     }
 }
