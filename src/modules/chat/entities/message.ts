@@ -5,6 +5,7 @@ export class Messages implements IMessage {
     id: Buffer
     content: string;
     author: string;
+    replied_message: Buffer | null;
     created_at: Date;
     updated_at: Date;
 

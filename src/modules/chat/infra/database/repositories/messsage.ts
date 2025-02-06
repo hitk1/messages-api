@@ -1,9 +1,8 @@
 import { injectable } from "tsyringe";
 import { Prisma } from "@prisma/client";
 
-import { IMessageRepository } from "@modules/chat/domains/repositories/message";
+import { IMessageRepository, IParamsCreateMessageRepository } from "@modules/chat/domains/repositories/message";
 import { Messages } from "@modules/chat/entities/message";
-import { IParamsNewMessage } from "@modules/chat/services/new-message/Interfaces";
 import { database } from "@infra/database/prisma/client";
 import { idStringToBinary } from "@core/utils/identifier";
 import { IMessage } from "@modules/chat/domains/models/message";
@@ -33,10 +32,13 @@ export class MessagesRepository implements IMessageRepository {
         return result
     }
 
-    async create(params: IParamsNewMessage): Promise<Messages> {
+    async create(params: IParamsCreateMessageRepository): Promise<Messages> {
         const message = new Messages()
         message.author = params.author
         message.content = params.message
+
+        if(params.reply_message_id)
+            message.replied_message = params.reply_message_id
 
         await database.messages.create({ data: message })
 

@@ -14,11 +14,12 @@ datasource db {
 }
 
 model Messages {
-  id         Bytes    @id() @db.ByteA()
-  content    String   @db.VarChar(600)
-  author     String   @db.VarChar()
-  created_at DateTime @db.Timestamp()
-  updated_at DateTime @db.Timestamp()
+  id              Bytes    @id() @db.ByteA()
+  content         String   @db.VarChar(600)
+  author          String   @db.VarChar()
+  replied_message Bytes?    @db.ByteA()
+  created_at      DateTime @db.Timestamp()
+  updated_at      DateTime @db.Timestamp()
 
   @@map("messages")
 }
