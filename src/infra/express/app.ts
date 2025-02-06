@@ -2,7 +2,7 @@ import 'dotenv/config'
 
 import 'reflect-metadata'
 import 'express-async-errors'
-import '@shared/containers'
+import '@shared/container'
 
 import cors from 'cors'
 import express from 'express'

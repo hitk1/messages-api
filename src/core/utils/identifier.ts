@@ -8,6 +8,7 @@ function idStringToBinary(id?: string): Buffer {
 
 function idBinaryToString(id: Buffer): string {
     const hexString = id.toString('hex')
+    console.log(hexString)
     return [
         hexString.slice(0, 8),
         hexString.slice(8, 12),
