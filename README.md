@@ -56,6 +56,10 @@ Simply run the command:
 
 `yarn test` 
 
+## Manual Test
+
+There is a schema file located on `/misc`. With that file is possible to use [Insomnia](https://insomnia.rest/) and manually check each endpoint.
+
 ## Spin up database
 Using `docker-compose`:
 
